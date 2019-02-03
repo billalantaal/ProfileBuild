@@ -1,0 +1,32 @@
+package com.example.myapplication.business
+
+data class User(
+    val Id: String?,
+    val Tokken: String?,
+    val NameInitials: Any?,
+    val Email: String?,
+    val FirstName: String?,
+    val MiddleName: Any?,
+    val LastName: String?,
+    val Birthday: String?,
+    val GenderId: Number?,
+    val Phone: Any?,
+    val AddressLine1: Any?,
+    val AddressLine2: Any?,
+    val City: String?,
+    val PostCode: Any?,
+    val CountryId: Number?,
+    val CountryName: String?,
+    val FullName: String?,
+    val DOB: Any?,
+    val Age: Number?,
+    val IsPro: Boolean?,
+    val About: Any?,
+    val ProfileImage: Any?,
+    val CreatedDateTime: String?,
+    val UpdatedDateTime: String?,
+    val Roles: Any?,
+    val IsSuccess: Boolean?,
+    val Message: String?,
+    val Result: Any?
+)
