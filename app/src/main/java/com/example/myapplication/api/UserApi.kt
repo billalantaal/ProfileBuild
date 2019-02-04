@@ -2,11 +2,12 @@ package com.example.myapplication.api
 
 import com.example.myapplication.business.User
 import io.reactivex.Single
-import retrofit2.http.GET
+import retrofit2.http.*
 
 interface UserApi {
-    @GET("master.json")
-    fun getData(): Single<List<User>>
+    @POST("api/account/CreateUser/")
+    @FormUrlEncoded
+    fun getData(@FieldMap body:HashMap<String,Any>): Single<User>
 /*
     @GET("men.json")
     fun getMenCategory(): Single<List<MenCategory>>

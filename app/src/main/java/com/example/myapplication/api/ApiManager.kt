@@ -5,7 +5,10 @@ import com.example.myapplication.business.User
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
+import org.json.JSONException
+import org.json.JSONObject
 import retrofit2.Retrofit
+import java.util.*
 import javax.inject.Inject
 
 class ApiManager {
@@ -21,8 +24,19 @@ class ApiManager {
     private val userApi = retrofit.create(UserApi::class.java)
 
 
-    fun getData(categoryData: (List<User>?) -> Unit) {
-        userApi.getData().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeBy({
+
+
+    fun getData(categoryData: (User?) -> Unit) {
+        val paramObject = hashMapOf<String,Any>()
+
+        paramObject["FirstName"] = "bbb"
+        paramObject["LastName"] = "bbb"
+        paramObject["Email"] = "irfan@ggggggb.com"
+        paramObject["Password"] = "123"
+        paramObject["ConfirmPassword"] = "123"
+
+
+        userApi.getData(paramObject).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeBy({
             categoryData(null)
         }, {
             categoryData(it)

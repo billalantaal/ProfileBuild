@@ -2,7 +2,6 @@ package com.example.myapplication.ui.createuser.registeruser
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,15 +33,19 @@ class CreateUserFragment : BaseFragment() ,CreateUserView{
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(CreateUserViewModel::class.java)
         viewModel.attachUI(this)
+        getUserData()
     }
 
-    override fun onCategoryDataReceived(usersData: List<User>) {
-        Toast.makeText(activity, "Success 1", Toast.LENGTH_SHORT).show()
-        viewModel.getCategoryData()
+    private fun getUserData(){
+        viewModel.getRegisterUser()
     }
 
-    override fun onCategoriesReceived(user: User) {
+    override fun onUserDataReceived(usersData: User) {
         Toast.makeText(activity, "Success 1", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onUserReceived(user: User) {
+        Toast.makeText(activity, "Success", Toast.LENGTH_SHORT).show()
     }
 
     override fun onError() {

@@ -1,9 +1,7 @@
 package com.example.myapplication.base.di
 
-import com.example.myapplication.base.di.components.ActivityComponent
-import com.example.myapplication.base.di.components.AppComponent
-import com.example.myapplication.base.di.components.NonAndroidComponent
 import com.example.myapplication.base.BaseActivity
+import com.example.myapplication.base.di.components.*
 import com.example.myapplication.base.di.modules.ActivityModule
 import com.example.myapplication.base.di.modules.AppModule
 import com.example.myapplication.base.di.modules.ObjectModule

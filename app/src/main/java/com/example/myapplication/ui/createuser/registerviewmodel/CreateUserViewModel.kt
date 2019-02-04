@@ -12,15 +12,15 @@ class CreateUserViewModel : BaseViewModel<CreateUserView>() {
 
     init {
         DaggerStrike.doSimpleInjection().here(this)
-        getCategoryData()
+        getRegisterUser()
     }
 
-    fun getCategoryData(){
+    fun getRegisterUser(){
         apiManager.getData {
-            if (it.isNullOrEmpty()){
+            if (it==null){
                 getUI().onError()
             }else{
-                getUI().onCategoryDataReceived(it)
+                getUI().onUserDataReceived(it)
             }
         }
     }

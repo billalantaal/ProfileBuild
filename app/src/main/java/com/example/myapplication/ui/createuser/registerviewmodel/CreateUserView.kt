@@ -4,7 +4,7 @@ import com.example.myapplication.business.User
 import com.example.myapplication.ui.ProfileApp
 
 interface CreateUserView : ProfileApp {
-    fun onCategoryDataReceived(usersData: List<User>)
-    fun onCategoriesReceived(user: User)
+    fun onUserDataReceived(usersData: User)
+    fun onUserReceived(user: User)
     fun onError()
 }
