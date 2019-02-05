@@ -12,11 +12,11 @@ class CreateUserViewModel : BaseViewModel<CreateUserView>() {
 
     init {
         DaggerStrike.doSimpleInjection().here(this)
-        getRegisterUser()
+//        getRegisterUser()
     }
 
     fun getRegisterUser(){
-        apiManager.getData {
+        apiManager.postDataToRegisterAPI {
             if (it==null){
                 getUI().onError()
             }else{

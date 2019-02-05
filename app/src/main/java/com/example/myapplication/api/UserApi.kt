@@ -5,9 +5,17 @@ import io.reactivex.Single
 import retrofit2.http.*
 
 interface UserApi {
+    @Headers( "Content-Type: application/json" )
     @POST("api/account/CreateUser/")
     @FormUrlEncoded
-    fun getData(@FieldMap body:HashMap<String,Any>): Single<User>
+    fun getDataForRegistration(@FieldMap body:HashMap<String,String>): Single<User>
+
+
+    @Headers( "Content-Type: application/json" )
+    @POST("/api/account/Login")
+    @FormUrlEncoded
+    fun getDataForLogin(@FieldMap body:HashMap<String,String>): Single<User>
+
 /*
     @GET("men.json")
     fun getMenCategory(): Single<List<MenCategory>>

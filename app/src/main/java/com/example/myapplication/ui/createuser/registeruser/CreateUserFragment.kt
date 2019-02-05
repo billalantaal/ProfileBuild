@@ -12,8 +12,9 @@ import com.example.myapplication.base.BaseFragment
 import com.example.myapplication.business.User
 import com.example.myapplication.ui.createuser.registerviewmodel.CreateUserView
 import com.example.myapplication.ui.createuser.registerviewmodel.CreateUserViewModel
+import kotlinx.android.synthetic.main.create_user_fragment.*
 
-class CreateUserFragment : BaseFragment() ,CreateUserView{
+class CreateUserFragment : BaseFragment(), CreateUserView {
 
 
     companion object {
@@ -33,10 +34,17 @@ class CreateUserFragment : BaseFragment() ,CreateUserView{
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(CreateUserViewModel::class.java)
         viewModel.attachUI(this)
-        getUserData()
+//        getUserData()
     }
 
-    private fun getUserData(){
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        btnSave.setOnClickListener {
+            getUserData()
+        }
+    }
+
+    private fun getUserData() {
         viewModel.getRegisterUser()
     }
 

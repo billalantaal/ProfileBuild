@@ -5,10 +5,7 @@ import com.example.myapplication.business.User
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
-import org.json.JSONException
-import org.json.JSONObject
 import retrofit2.Retrofit
-import java.util.*
 import javax.inject.Inject
 
 class ApiManager {
@@ -26,22 +23,45 @@ class ApiManager {
 
 
 
-    fun getData(categoryData: (User?) -> Unit) {
-        val paramObject = hashMapOf<String,Any>()
+    fun postDataToRegisterAPI(registerData: (User?) -> Unit) {
+        val paramObject = hashMapOf<String,String>()
+
+/*         val paramObject = JSONObject()
+        paramObject.put("FirstName", "bbtrrb")
+        paramObject.put("FirstName", "tebbb")
+        paramObject.put("Email", "irfan@ggttggggb.com")
+        paramObject.put("Password", "1243")
+        paramObject.put("ConfirmPassword", "1243")*/
+
 
         paramObject["FirstName"] = "bbb"
         paramObject["LastName"] = "bbb"
         paramObject["Email"] = "irfan@ggggggb.com"
         paramObject["Password"] = "123"
         paramObject["ConfirmPassword"] = "123"
+//        paramObject["RoleId"]="0"
 
 
-        userApi.getData(paramObject).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeBy({
-            categoryData(null)
+        userApi.getDataForRegistration(paramObject).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeBy({
+            registerData(null)
         }, {
-            categoryData(it)
+            registerData(it)
         })
     }
+
+
+    fun postDataToLoginAPI(loginData:(User?)->Unit){
+        val jasonparams= hashMapOf<String,String>()
+        jasonparams["UserName"]="irfan@ggggggb.com"
+        jasonparams["Password"]="123"
+
+        userApi.getDataForLogin(jasonparams).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeBy ({
+            loginData(null)
+        },{
+           loginData(it)
+        })
+    }
+
 
 /*    fun getCategories(data: (Categories?) -> Unit): Disposable {
         return Single.zip(
