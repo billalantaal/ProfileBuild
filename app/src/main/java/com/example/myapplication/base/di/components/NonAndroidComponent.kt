@@ -1,5 +1,6 @@
 package com.example.myapplication.base.di.components
 
+import android.content.Context
 import com.example.myapplication.api.ApiManager
 import com.example.myapplication.base.di.modules.ObjectModule
 import com.example.myapplication.ui.createuser.registerviewmodel.CreateUserViewModel
@@ -11,4 +12,5 @@ import javax.inject.Singleton
 interface NonAndroidComponent {
     fun here(apiManager: ApiManager)
     fun here(createUserModel: CreateUserViewModel)
+    fun here(context:Context)
 }

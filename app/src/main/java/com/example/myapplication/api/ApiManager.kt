@@ -1,12 +1,15 @@
 package com.example.myapplication.api
 
+import android.util.Log
 import com.example.myapplication.base.di.DaggerStrike
 import com.example.myapplication.business.User
+import com.google.gson.JsonObject
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 import retrofit2.Retrofit
 import javax.inject.Inject
+
 
 class ApiManager {
     init {
@@ -21,45 +24,43 @@ class ApiManager {
     private val userApi = retrofit.create(UserApi::class.java)
 
 
+    fun postDataToRegisterAPI( firstName:String,
+                               lastName:String,
+                               email:String,
+                               password:String,
+                               confirmPassword:String,
+                              registerData: (User?) -> Unit) {
+//        val paramObject = hashMapOf<String,String>()
 
+        val paramObject = JsonObject()
+        paramObject.addProperty("FirstName", firstName)
+        paramObject.addProperty("LastName", lastName)
+        paramObject.addProperty("Email", email)
+        paramObject.addProperty("Password", password)
+        paramObject.addProperty("ConfirmPassword", confirmPassword)
+//        paramObject.put("RoleId",1)
 
-    fun postDataToRegisterAPI(registerData: (User?) -> Unit) {
-        val paramObject = hashMapOf<String,String>()
-
-/*         val paramObject = JSONObject()
-        paramObject.put("FirstName", "bbtrrb")
-        paramObject.put("FirstName", "tebbb")
-        paramObject.put("Email", "irfan@ggttggggb.com")
-        paramObject.put("Password", "1243")
-        paramObject.put("ConfirmPassword", "1243")*/
-
-
-        paramObject["FirstName"] = "bbb"
-        paramObject["LastName"] = "bbb"
-        paramObject["Email"] = "irfan@ggggggb.com"
-        paramObject["Password"] = "123"
-        paramObject["ConfirmPassword"] = "123"
-//        paramObject["RoleId"]="0"
-
-
-        userApi.getDataForRegistration(paramObject).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeBy({
+        userApi.getDataForRegistration(paramObject).subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread()).subscribeBy({
             registerData(null)
+
         }, {
             registerData(it)
         })
     }
 
 
-    fun postDataToLoginAPI(loginData:(User?)->Unit){
-        val jasonparams= hashMapOf<String,String>()
-        jasonparams["UserName"]="irfan@ggggggb.com"
-        jasonparams["Password"]="123"
+    fun postDataToLoginAPI(loginData: (User?) -> Unit) {
+        val jasonparams = hashMapOf<String, String>()
+        jasonparams["UserName"] = "irfan@ggggggb.com"
+        jasonparams["Password"] = "123"
 
-        userApi.getDataForLogin(jasonparams).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeBy ({
-            loginData(null)
-        },{
-           loginData(it)
-        })
+        userApi.getDataForLogin(jasonparams).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+            .subscribeBy({
+                loginData(null)
+            }, {
+                loginData(it)
+            })
     }
 
 

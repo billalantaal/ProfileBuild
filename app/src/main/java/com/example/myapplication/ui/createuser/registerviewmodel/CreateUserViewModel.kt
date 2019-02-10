@@ -15,8 +15,16 @@ class CreateUserViewModel : BaseViewModel<CreateUserView>() {
 //        getRegisterUser()
     }
 
-    fun getRegisterUser(){
-        apiManager.postDataToRegisterAPI {
+    fun getRegisterUser(firstName:String,
+                        lastName:String,
+                        email:String,
+                        password:String,
+                        confirmPassword:String){
+        apiManager.postDataToRegisterAPI (firstName,
+            lastName,
+            email,
+            password,
+            confirmPassword){
             if (it==null){
                 getUI().onError()
             }else{
