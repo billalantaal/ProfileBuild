@@ -28,8 +28,26 @@ class CreateUserViewModel : BaseViewModel<CreateUserView>() {
             if (it==null){
                 getUI().onError()
             }else{
-                getUI().onUserDataReceived(it)
+                getPasswordUser(firstName,lastName,email,password,confirmPassword)
+//                getUI().onUserDataReceived(it)
             }
+        }
+    }
+
+    fun getPasswordUser(firstName:String,
+                        lastName:String,
+                        email:String,
+                        password:String,
+                        confirmPassword:String){
+        apiManager.postDataToPasswordAPI (firstName,
+            lastName,
+            email,
+            password,
+            confirmPassword){
+            if (it==null){
+                getUI().onError()
+            }else{
+                getUI().onUserDataReceived(it)            }
         }
     }
 

@@ -1,6 +1,5 @@
 package com.example.myapplication.api
 
-import android.util.Log
 import com.example.myapplication.base.di.DaggerStrike
 import com.example.myapplication.business.User
 import com.google.gson.JsonObject
@@ -48,6 +47,32 @@ class ApiManager {
             registerData(it)
         })
     }
+
+    fun postDataToPasswordAPI( firstName:String,
+                               lastName:String,
+                               email:String,
+                               password:String,
+                               confirmPassword:String,
+                               registerData: (User?) -> Unit) {
+//        val paramObject = hashMapOf<String,String>()
+
+        val paramObject = JsonObject()
+        paramObject.addProperty("FirstName", firstName)
+        paramObject.addProperty("LastName", lastName)
+        paramObject.addProperty("Email", email)
+        paramObject.addProperty("Password", password)
+        paramObject.addProperty("ConfirmPassword", confirmPassword)
+//        paramObject.put("RoleId",1)
+
+        userApi.getDataForPassword(paramObject).subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread()).subscribeBy({
+                registerData(null)
+
+            }, {
+                registerData(it)
+            })
+    }
+
 
 
     fun postDataToLoginAPI(loginData: (User?) -> Unit) {

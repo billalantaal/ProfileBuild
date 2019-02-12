@@ -13,6 +13,9 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity android:name=".ui.homeAuxliries.HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
         </activity>
         <activity android:name=".ui.createuser.MainActivity">
             <intent-filter>

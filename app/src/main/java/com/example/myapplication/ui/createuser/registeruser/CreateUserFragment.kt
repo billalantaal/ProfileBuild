@@ -45,7 +45,7 @@ class CreateUserFragment : BaseFragment(), CreateUserView {
         super.onViewCreated(view, savedInstanceState)
         btnSave.setOnClickListener {
             if (validationData()) {
-//                getUserData()
+                getUserData()
             }
 
         }
@@ -76,7 +76,7 @@ class CreateUserFragment : BaseFragment(), CreateUserView {
                     ))
                 ) {
                     if ((editTextPassword.text.isNotEmpty()) && (editTextPassword.text.count() >= 4)) {
-                        if ((editTextConfirmPass.text.isNotEmpty()) && (editTextConfirmPass.text == editTextPassword.text)) {
+                        if ((editTextConfirmPass.text.isNotEmpty()) && editTextConfirmPass.text.toString().equals(editTextPassword.text.toString())) {
                             return true
                         } else {
                             Toast.makeText(this.context, "Password Not Match", Toast.LENGTH_LONG).show()
