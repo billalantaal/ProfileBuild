@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">SUNCOR</string>
     <string name="txt_loading">Loading...</string>
     <string name="txt_generic_error">Oops try Again!!</string>
 </resources>
