@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.createuser.registeruser
+package com.example.myapplication.ui.profileAuxliries.registeruser
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,9 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.myapplication.R
 import com.example.myapplication.base.BaseFragment
 import com.example.myapplication.business.User
-import com.example.myapplication.ui.createuser.registerviewmodel.CreateUserView
-import com.example.myapplication.ui.createuser.registerviewmodel.CreateUserViewModel
-import com.example.myapplication.ui.loginUser.LoginUserFragment
+import com.example.myapplication.ui.profileAuxliries.loginUser.LoginUserFragment
 import com.example.myapplication.utils.AppConst
 import com.example.myapplication.utils.UIAnimationUtils
 import com.example.myapplication.utils.Utils

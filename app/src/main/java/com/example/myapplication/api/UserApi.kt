@@ -20,8 +20,7 @@ interface UserApi {
 
     @Headers( "Content-Type: application/json" )
     @POST("/api/account/Login")
-    @FormUrlEncoded
-    fun getDataForLogin(@FieldMap body:HashMap<String,String>): Single<User>
+    fun getDataForLogin(@Body body:JsonObject): Single<User>
 
 /*
     @GET("men.json")

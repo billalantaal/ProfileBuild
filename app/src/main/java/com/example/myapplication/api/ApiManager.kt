@@ -75,12 +75,16 @@ class ApiManager {
 
 
 
-    fun postDataToLoginAPI(loginData: (User?) -> Unit) {
-        val jasonparams = hashMapOf<String, String>()
+    fun postDataToLoginAPI(username:String,password: String,loginData: (User?) -> Unit) {
+/*        val jasonparams = hashMapOf<String, String>()
         jasonparams["UserName"] = "irfan@ggggggb.com"
-        jasonparams["Password"] = "123"
+        jasonparams["Password"] = "123"*/
+        val paramObject = JsonObject()
+        paramObject.addProperty("UserName", username)
+        paramObject.addProperty("Password", password)
 
-        userApi.getDataForLogin(jasonparams).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+
+        userApi.getDataForLogin(paramObject).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
             .subscribeBy({
                 loginData(null)
             }, {

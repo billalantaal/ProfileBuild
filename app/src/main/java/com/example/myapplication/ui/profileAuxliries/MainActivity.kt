@@ -1,10 +1,10 @@
-package com.example.myapplication.ui.createuser
+package com.example.myapplication.ui.profileAuxliries
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
 import com.example.myapplication.base.BaseActivity
-import com.example.myapplication.ui.createuser.registeruser.CreateUserFragment
+import com.example.myapplication.ui.profileAuxliries.loginUser.LoginUserFragment
+import com.example.myapplication.ui.splash.SplashFragment
 
 class MainActivity : BaseActivity() {
 
@@ -18,7 +18,7 @@ class MainActivity : BaseActivity() {
         if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
-                .add(R.id.root_layout, CreateUserFragment.newInstance(), "CreateUserFragment")
+                .add(R.id.root_layout, LoginUserFragment.newInstance(), "LoginUserFragment")
                 .commit()
         }
     }

@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.createuser.registerviewmodel
+package com.example.myapplication.ui.profileAuxliries.registeruser
 
 import com.example.myapplication.business.User
 import com.example.myapplication.ui.ProfileApp

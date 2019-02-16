@@ -10,7 +10,7 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context=".ui.createuser.registeruser.CreateUserFragment">
+            tools:context=".ui.profileAuxliries.registeruser.CreateUserFragment">
 
         <ImageView
                 android:id="@+id/imageViewProfile"

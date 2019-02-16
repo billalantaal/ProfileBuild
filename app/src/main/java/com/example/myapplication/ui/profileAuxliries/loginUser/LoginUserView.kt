@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.loginUser
+package com.example.myapplication.ui.profileAuxliries.loginUser
 
 import com.example.myapplication.business.User
 import com.example.myapplication.ui.ProfileApp

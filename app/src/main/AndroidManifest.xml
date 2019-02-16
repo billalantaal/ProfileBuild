@@ -12,17 +12,22 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".ui.homeAuxliries.HomeActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-            </intent-filter>
-        </activity>
-        <activity android:name=".ui.createuser.MainActivity">
+        <activity android:name=".ui.splash.SplashActivity"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
+                  android:configChanges="orientation|keyboardHidden|screenSize"
+        >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".ui.homeAuxliries.HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.profileAuxliries.MainActivity">
         </activity>
     </application>
 
