@@ -29,6 +29,10 @@
         </activity>
         <activity android:name=".ui.profileAuxliries.MainActivity">
         </activity>
+        <meta-data
+                android:name="io.fabric.ApiKey"
+                android:value="2ef04dcbbd9db4a29243ad14af85c5a7540fcbcd"
+        />
     </application>
 
 </manifest>

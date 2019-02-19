@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import com.example.myapplication.R
@@ -30,8 +31,6 @@ class LoginUserFragment : BaseFragment(),LoginUserView {
         savedInstanceState: Bundle?
     ): View? {
         val view: View= inflater.inflate(R.layout.login_user_fragment, container, false)
-//        view.buttonSignUp.setOnClickListener { navtoRegisterUser() }
-
         return view
     }
 
@@ -42,6 +41,7 @@ class LoginUserFragment : BaseFragment(),LoginUserView {
         viewModel.attachUI(this)
 
         buttonSignIn.setOnClickListener {
+            progressBar.visibility=View.VISIBLE
             viewModel.getLoginUser(et_username.text.toString(),et_password.text.toString())
         }
         buttonSignUp.setOnClickListener { navToRegisterUser() }
@@ -51,7 +51,7 @@ class LoginUserFragment : BaseFragment(),LoginUserView {
         val frg = CreateUserFragment()
         val fm = activity!!.supportFragmentManager
         val ft = fm.beginTransaction()
-        ft.add(R.id.root_layout, frg, AppConst.FRGTAG.CreateUserFragment)
+        ft.add(R.id.container, frg, AppConst.FRGTAG.CreateUserFragment)
         ft.addToBackStack(AppConst.FRGTAG.LoginUserFragment)
         ft.hide(this)
         ft.commit()
@@ -64,10 +64,12 @@ class LoginUserFragment : BaseFragment(),LoginUserView {
     }
 
     override fun onReceivedLoginUser(userdata: User) {
+        progressBar.visibility=View.GONE
         navToHomeActivity()
     }
 
     override fun OnError() {
+        progressBar.visibility=View.GONE
         Toast.makeText(activity,"Error",Toast.LENGTH_LONG).show()
     }
 

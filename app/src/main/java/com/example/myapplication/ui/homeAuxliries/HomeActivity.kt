@@ -1,9 +1,9 @@
 package com.example.myapplication.ui.homeAuxliries
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.myapplication.R
 import com.example.myapplication.base.BaseActivity
+import com.example.myapplication.ui.homeAuxliries.home.HomeFragment
 
 class HomeActivity : BaseActivity() {
 

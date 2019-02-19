@@ -1,6 +1,7 @@
 package com.example.myapplication.api
 
 import com.example.myapplication.base.di.DaggerStrike
+import com.example.myapplication.business.Forms
 import com.example.myapplication.business.User
 import com.google.gson.JsonObject
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -90,6 +91,16 @@ class ApiManager {
             }, {
                 loginData(it)
             })
+    }
+
+
+    fun getDataForFLHA(formsData:(Forms?)->Unit){
+        userApi.getDataForForms().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+            .subscribeBy ({
+                formsData(null)
+            },{
+            formsData(it)
+        })
     }
 
 

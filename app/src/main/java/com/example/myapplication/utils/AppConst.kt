@@ -8,6 +8,9 @@ object AppConst {
         companion object {
             val CreateUserFragment = "CreateUserFragment"
             val LoginUserFragment = "LoginUserFragment"
+            val HomeFragment="HomeFragment"
+            val FLHAFragment="FLHAFragment"
+
         }
     }
 

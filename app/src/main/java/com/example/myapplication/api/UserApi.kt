@@ -1,5 +1,6 @@
 package com.example.myapplication.api
 
+import com.example.myapplication.business.Forms
 import com.example.myapplication.business.User
 import com.google.gson.JsonObject
 import io.reactivex.Single
@@ -22,6 +23,10 @@ interface UserApi {
     @POST("/api/account/Login")
     fun getDataForLogin(@Body body:JsonObject): Single<User>
 
+
+    @Headers( "Content-Type: application/json" )
+    @GET("/api/Forms/Get")
+    fun getDataForForms(): Single<Forms>
 /*
     @GET("men.json")
     fun getMenCategory(): Single<List<MenCategory>>

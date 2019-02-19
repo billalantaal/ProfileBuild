@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.homeAuxliries
+package com.example.myapplication.ui.homeAuxliries.home
 
 import com.example.myapplication.ui.ProfileApp
 
