@@ -6,12 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.myapplication.R
+import com.example.myapplication.SunCor
 import com.example.myapplication.base.BaseFragment
+import com.example.myapplication.business.Forms
 import com.example.myapplication.ui.homeAuxliries.flha.FLHAFragment
 import com.example.myapplication.utils.AppConst
 import kotlinx.android.synthetic.main.home_fragment.*
 
-class HomeFragment : BaseFragment() {
+class HomeFragment : BaseFragment(),homeView {
+
 
     companion object {
         fun newInstance() = HomeFragment()
@@ -29,6 +32,8 @@ class HomeFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
+        viewModel.attachUI(this)
+        viewModel.getDataForms()
         txtViewflha.setOnClickListener {
             navToFLHAFragment()
         }
@@ -42,6 +47,17 @@ class HomeFragment : BaseFragment() {
         ft.addToBackStack(AppConst.FRGTAG.HomeFragment)
         ft.hide(this)
         ft.commit()
+    }
+    override fun onReceivedHomeData(forms: Forms) {
+        if ((forms.IsSuccess)&&(forms.Message.equals("Success",ignoreCase = true))){
+            if (forms.Result[0].Type.equals("FLHA",ignoreCase = true)){
+                SunCor.flha= forms.Result[0].Fields
+            }
+        }
+    }
+
+    override fun onError() {
+
     }
 
 }

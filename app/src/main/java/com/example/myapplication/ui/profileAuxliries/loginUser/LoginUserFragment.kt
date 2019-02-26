@@ -51,7 +51,7 @@ class LoginUserFragment : BaseFragment(),LoginUserView {
         val frg = CreateUserFragment()
         val fm = activity!!.supportFragmentManager
         val ft = fm.beginTransaction()
-        ft.add(R.id.container, frg, AppConst.FRGTAG.CreateUserFragment)
+        ft.add(R.id.root_layout, frg, AppConst.FRGTAG.CreateUserFragment)
         ft.addToBackStack(AppConst.FRGTAG.LoginUserFragment)
         ft.hide(this)
         ft.commit()

@@ -1,4 +1,7 @@
 package com.example.myapplication.business
 
-data class Forms(var string: String) {
-}
+data class Forms(
+    val IsSuccess: Boolean,
+    val Message: String,
+    val Result: List<Result>
+)

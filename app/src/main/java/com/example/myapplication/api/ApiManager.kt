@@ -24,12 +24,14 @@ class ApiManager {
     private val userApi = retrofit.create(UserApi::class.java)
 
 
-    fun postDataToRegisterAPI( firstName:String,
-                               lastName:String,
-                               email:String,
-                               password:String,
-                               confirmPassword:String,
-                              registerData: (User?) -> Unit) {
+    fun postDataToRegisterAPI(
+        firstName: String,
+        lastName: String,
+        email: String,
+        password: String,
+        confirmPassword: String,
+        registerData: (User?) -> Unit
+    ) {
 //        val paramObject = hashMapOf<String,String>()
 
         val paramObject = JsonObject()
@@ -42,19 +44,21 @@ class ApiManager {
 
         userApi.getDataForRegistration(paramObject).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread()).subscribeBy({
-            registerData(null)
+                registerData(null)
 
-        }, {
-            registerData(it)
-        })
+            }, {
+                registerData(it)
+            })
     }
 
-    fun postDataToPasswordAPI( firstName:String,
-                               lastName:String,
-                               email:String,
-                               password:String,
-                               confirmPassword:String,
-                               registerData: (User?) -> Unit) {
+    fun postDataToPasswordAPI(
+        firstName: String,
+        lastName: String,
+        email: String,
+        password: String,
+        confirmPassword: String,
+        registerData: (User?) -> Unit
+    ) {
 //        val paramObject = hashMapOf<String,String>()
 
         val paramObject = JsonObject()
@@ -75,8 +79,7 @@ class ApiManager {
     }
 
 
-
-    fun postDataToLoginAPI(username:String,password: String,loginData: (User?) -> Unit) {
+    fun postDataToLoginAPI(username: String, password: String, loginData: (User?) -> Unit) {
 /*        val jasonparams = hashMapOf<String, String>()
         jasonparams["UserName"] = "irfan@ggggggb.com"
         jasonparams["Password"] = "123"*/
@@ -94,13 +97,13 @@ class ApiManager {
     }
 
 
-    fun getDataForFLHA(formsData:(Forms?)->Unit){
+    fun getDataForForms(formsData: (Forms?) -> Unit) {
         userApi.getDataForForms().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-            .subscribeBy ({
+            .subscribeBy({
                 formsData(null)
-            },{
-            formsData(it)
-        })
+            }, {
+                formsData(it)
+            })
     }
 
 

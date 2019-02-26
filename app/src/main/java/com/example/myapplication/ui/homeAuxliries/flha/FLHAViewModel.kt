@@ -14,14 +14,5 @@ class FLHAViewModel : BaseViewModel<FLHAView>() {
         DaggerStrike.doSimpleInjection().here(this)
     }
 
-    fun getDataDorFLHA(){
-        apiManager.getDataForFLHA {
-          if(it==null){
-              getUI().onError()
-          }else{
-              getUI().onReceivedFLHA(it)
-          }
-        }
-    }
 
 }

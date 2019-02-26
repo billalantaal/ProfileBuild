@@ -7,6 +7,13 @@
         tools:context=".ui.homeAuxliries.flha.FLHAFragment">
 
 
+    <include layout="@layout/multiple_choice"/>
+
+    <include layout="@layout/edit_txt_layout"/>
+    <include layout="@layout/edit_txt_layout"/>
+    <include layout="@layout/edit_txt_layout"/>
+    <include layout="@layout/edit_txt_layout"/>
+    <include layout="@layout/edit_txt_layout"/>
 
 
 </FrameLayout>
