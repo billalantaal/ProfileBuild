@@ -7,15 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioGroup
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 import com.example.myapplication.R
 import com.example.myapplication.SunCor
 import com.example.myapplication.base.BaseFragment
+import com.example.myapplication.ui.homeAuxliries.flha.flha_child.FLHAAdapter
 import kotlinx.android.synthetic.main.edit_txt_layout.*
+import kotlinx.android.synthetic.main.flha_fragment.*
 import kotlinx.android.synthetic.main.multiple_choice.*
 
 class FLHAFragment : BaseFragment() {
-
 
     companion object {
         fun newInstance() = FLHAFragment()
@@ -33,8 +36,11 @@ class FLHAFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(FLHAViewModel::class.java)
+        mRecyclerView.layoutManager=LinearLayoutManager(context)
+        val adapter=FLHAAdapter(this.context!!,SunCor.flha)
+        mRecyclerView.adapter=adapter
 
-        if (SunCor.flha[0].Type.equals("MultipleChoice",ignoreCase = true)){
+/*        if (SunCor.flha[0].Type.equals("MultipleChoice",ignoreCase = true)){
             multiple_choice.visibility=View.VISIBLE
             fieldName.text=SunCor.flha[0].Name
             radioButton.text=SunCor.flha[0].FieldsOptions[0]?.Name
@@ -70,7 +76,7 @@ class FLHAFragment : BaseFragment() {
             radioButton3.isChecked = false
             radioButton2.isChecked = false
             Toast.makeText(activity, "" + radioButton4.text, Toast.LENGTH_LONG).show()
-        }
+        }*/
 /*        radioGroup.setOnCheckedChangeListener(object : RadioGroup.OnCheckedChangeListener {
             override fun onCheckedChanged(p0: RadioGroup?, p1: Int) {
                 when (p1) {

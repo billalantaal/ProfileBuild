@@ -6,14 +6,13 @@
         android:layout_height="match_parent"
         tools:context=".ui.homeAuxliries.flha.FLHAFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/mRecyclerView"
+    >
 
-    <include layout="@layout/multiple_choice"/>
-
-    <include layout="@layout/edit_txt_layout"/>
-    <include layout="@layout/edit_txt_layout"/>
-    <include layout="@layout/edit_txt_layout"/>
-    <include layout="@layout/edit_txt_layout"/>
-    <include layout="@layout/edit_txt_layout"/>
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 </FrameLayout>

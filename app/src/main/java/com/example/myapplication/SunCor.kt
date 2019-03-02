@@ -18,7 +18,7 @@ class SunCor : Application() {
             return instance!!.applicationContext
         }
 
-        lateinit var flha: List<Field>
+         var flha: List<Field> = emptyList()
 
     }
 

@@ -78,7 +78,7 @@ dependencies {
         transitive = true
     }
     implementation 'androidx.cardview:cardview:1.0.0-rc02'
-
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha01'
 
 }
 androidExtensions {

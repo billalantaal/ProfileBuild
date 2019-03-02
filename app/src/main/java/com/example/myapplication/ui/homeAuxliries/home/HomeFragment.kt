@@ -2,9 +2,11 @@ package com.example.myapplication.ui.homeAuxliries.home
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.myapplication.R
 import com.example.myapplication.SunCor
 import com.example.myapplication.base.BaseFragment
@@ -21,6 +23,7 @@ class HomeFragment : BaseFragment(),homeView {
     }
 
     private lateinit var viewModel: HomeViewModel
+    private var success=false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,7 +38,11 @@ class HomeFragment : BaseFragment(),homeView {
         viewModel.attachUI(this)
         viewModel.getDataForms()
         txtViewflha.setOnClickListener {
-            navToFLHAFragment()
+            if (SunCor.flha.isNotEmpty()){
+                navToFLHAFragment()
+            }else{
+                Toast.makeText(this.context!!,"please wait",Toast.LENGTH_LONG).show()
+            }
         }
     }
 
@@ -52,6 +59,7 @@ class HomeFragment : BaseFragment(),homeView {
         if ((forms.IsSuccess)&&(forms.Message.equals("Success",ignoreCase = true))){
             if (forms.Result[0].Type.equals("FLHA",ignoreCase = true)){
                 SunCor.flha= forms.Result[0].Fields
+                success=true
             }
         }
     }
