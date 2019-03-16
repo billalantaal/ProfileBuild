@@ -16,7 +16,7 @@
             <TextView android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:id="@+id/dateName"
-                      android:textColor="@color/blue"
+                      android:textColor="@color/grey"
                       android:layout_marginStart="10dp"
                       android:text="Date:"
             />
@@ -29,6 +29,7 @@
                     android:layout_marginStart="10dp"
                     android:id="@+id/edtDate"
                     android:hint="enter date"
+                    android:textCursorDrawable="@drawable/color_cursor"
                     android:textColorHint="@color/grey"
 
             />

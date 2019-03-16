@@ -17,7 +17,7 @@
             <TextView android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:id="@+id/edt_name"
-                      android:textColor="@color/blue"
+                      android:textColor="@color/grey"
                       android:textSize="18sp"
                       android:layout_marginStart="10dp"
                       android:text="Bussiness Unit:"/>
@@ -28,8 +28,9 @@
                     android:layout_below="@+id/edt_name"
                     android:layout_marginTop="10dp"
                     android:layout_marginStart="10dp"
+                    android:textCursorDrawable="@drawable/color_cursor"
                     android:id="@+id/edtfield"
-                    android:hint="text"
+                    android:hint="enter text"
                     android:textColorHint="@color/grey"
 
             />

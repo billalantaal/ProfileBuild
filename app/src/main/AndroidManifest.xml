@@ -15,16 +15,15 @@
             android:name=".SunCor">
         <activity android:name=".ui.splash.SplashActivity"
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
-                  android:configChanges="orientation|keyboardHidden|screenSize"
-        >
-
-        </activity>
-        <activity android:name=".ui.homeAuxliries.HomeActivity">
+                  android:configChanges="orientation|keyboardHidden|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".ui.homeAuxliries.HomeActivity">
+
         </activity>
         <activity android:name=".ui.profileAuxliries.MainActivity">
         </activity>

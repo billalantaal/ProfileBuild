@@ -1,12 +1,11 @@
 package com.example.myapplication.ui.homeAuxliries.home
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProviders
 import com.example.myapplication.R
 import com.example.myapplication.SunCor
 import com.example.myapplication.base.BaseFragment
@@ -15,7 +14,7 @@ import com.example.myapplication.ui.homeAuxliries.flha.FLHAFragment
 import com.example.myapplication.utils.AppConst
 import kotlinx.android.synthetic.main.home_fragment.*
 
-class HomeFragment : BaseFragment(),homeView {
+class HomeFragment : BaseFragment(), homeView {
 
 
     companion object {
@@ -23,7 +22,6 @@ class HomeFragment : BaseFragment(),homeView {
     }
 
     private lateinit var viewModel: HomeViewModel
-    private var success=false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,15 +36,15 @@ class HomeFragment : BaseFragment(),homeView {
         viewModel.attachUI(this)
         viewModel.getDataForms()
         txtViewflha.setOnClickListener {
-            if (SunCor.flha.isNotEmpty()){
+            if (SunCor.flha.isNotEmpty()) {
                 navToFLHAFragment()
-            }else{
-                Toast.makeText(this.context!!,"please wait",Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this.context!!, "please wait", Toast.LENGTH_LONG).show()
             }
         }
     }
 
-    private fun navToFLHAFragment(){
+    private fun navToFLHAFragment() {
         val frg = FLHAFragment()
         val fm = activity!!.supportFragmentManager
         val ft = fm.beginTransaction()
@@ -55,11 +53,11 @@ class HomeFragment : BaseFragment(),homeView {
         ft.hide(this)
         ft.commit()
     }
+
     override fun onReceivedHomeData(forms: Forms) {
-        if ((forms.IsSuccess)&&(forms.Message.equals("Success",ignoreCase = true))){
-            if (forms.Result[0].Type.equals("FLHA",ignoreCase = true)){
-                SunCor.flha= forms.Result[0].Fields
-                success=true
+        if ((forms.IsSuccess) && (forms.Message.equals("Success", ignoreCase = true))) {
+            if (forms.Result[0].Type.equals("FLHA", ignoreCase = true)) {
+                SunCor.flha = forms.Result[0].Fields
             }
         }
     }

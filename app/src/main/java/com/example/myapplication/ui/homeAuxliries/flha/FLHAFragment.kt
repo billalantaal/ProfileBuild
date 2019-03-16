@@ -1,20 +1,15 @@
 package com.example.myapplication.ui.homeAuxliries.flha
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RadioGroup
-import android.widget.Toast
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-
 import com.example.myapplication.R
 import com.example.myapplication.SunCor
 import com.example.myapplication.base.BaseFragment
 import com.example.myapplication.ui.homeAuxliries.flha.flha_child.FLHAAdapter
-import kotlinx.android.synthetic.main.edit_txt_layout.*
 import kotlinx.android.synthetic.main.flha_fragment.*
 import kotlinx.android.synthetic.main.multiple_choice.*
 
@@ -52,30 +47,26 @@ class FLHAFragment : BaseFragment() {
             edtname.text=SunCor.flha[0].Name
         }
 
-
-        radioButton.setOnClickListener {
+*/
+  /*      radioButton.setOnClickListener {
             radioButton2.isChecked = false
             radioButton3.isChecked = false
             radioButton4.isChecked = false
-            Toast.makeText(activity, "" + radioButton.text, Toast.LENGTH_LONG).show()
         }
         radioButton2.setOnClickListener {
             radioButton.isChecked = false
             radioButton3.isChecked = false
             radioButton4.isChecked = false
-            Toast.makeText(activity, "" + radioButton2.text, Toast.LENGTH_LONG).show()
         }
         radioButton3.setOnClickListener {
             radioButton.isChecked = false
             radioButton2.isChecked = false
             radioButton4.isChecked = false
-            Toast.makeText(activity, "" + radioButton3.text, Toast.LENGTH_LONG).show()
         }
         radioButton4.setOnClickListener {
             radioButton.isChecked = false
             radioButton3.isChecked = false
             radioButton2.isChecked = false
-            Toast.makeText(activity, "" + radioButton4.text, Toast.LENGTH_LONG).show()
         }*/
 /*        radioGroup.setOnCheckedChangeListener(object : RadioGroup.OnCheckedChangeListener {
             override fun onCheckedChanged(p0: RadioGroup?, p1: Int) {
